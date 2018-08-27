@@ -28,8 +28,9 @@ channel.bind('hit', function(data) {
   myCache.get('lastGong', function(err, value){
     console.log(`gong:try: ${JSON.stringify(data)}`);
     var threshold = 900000;
-    if(data.count==17){
+    if(data.count==17){ // Manual gong
       var threshold=1800000 // 30 min
+      data.count=1;
     }
 
     if(value === undefined || Date.now() - value > threshold){ // At least 15 min
