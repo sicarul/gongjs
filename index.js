@@ -26,8 +26,9 @@ pigs('2', startStep);
 
 channel.bind('hit', function(data) {
   myCache.get('lastGong', function(err, value){
+    console.log(`gong:try: ${JSON.stringify(data)}`);
     var threshold = 900000;
-    if(count==17){
+    if(data.count==17){
       var threshold=1800000 // 30 min
     }
 
