@@ -32,7 +32,7 @@ channel.bind('hit', function(data) {
       var threshold=1800000 // 30 min
     }
 
-    if(err || Date.now() - value > threshold){ // At least 15 min
+    if(value === undefined || Date.now() - value > threshold){ // At least 15 min
       myCache.set( "lastGong", Date.now(), function( err, success ){
         console.log(`gong:hit: ${JSON.stringify(data)}`);
         const count = Math.min(3, data.count);
