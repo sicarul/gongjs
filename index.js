@@ -43,7 +43,7 @@ channel.bind('hit', function(data) {
           pigs('2', startStep);
           sleep(delay);
         }
-      }
+      });
     }
-  }
+  });
 });
